@@ -1,4 +1,7 @@
+"""The module to define meta data constants as specified by corp-bulkorder-layout.doc"""
+
 import pandas as pd
+
 ############META DATA CONSTANTS################
 df_meta = pd.read_csv("sos_meta_data.csv")
 df_meta.columns = df_meta.columns.map(lambda x: x.lower())

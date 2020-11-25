@@ -1,25 +1,28 @@
-import pandas as pd
+"""The module to read in SOS fwf data"""
+
 from itertools import accumulate
+import pandas as pd
 import numpy as np
 import meta_data
 
 
-#Read im the file get rid of newlines
-def read_data(fn):
+def read_data(fn: str) -> str:
+    """The function to read in a txt file and strip newlines."""
     with open(fn,"r") as fh:
         data = fh.read()
     data = data.replace("\n","")
     return data
 
 
-#Split into discrete records 560 characters record length
-def split_fw(data,n=560):
+def split_fw(data: str, n=560) -> list:
+    """The function to split a txt file according to a fixed width (n)."""
     records = [data[i:i+n] for i in range(0, len(data), n)]
     return records
 
 
-#Read sub fwf according to specified fw from layout_code 
-def read_multi_fwf(records):
+#Read sub fwfs according to specified fw from layout_code 
+def read_multi_fwf(records: list) -> pd.DataFrame:
+    """The function to split a list of fwf file according to metadata described        in corp-bulkorder-layout.doc into a pandas dataframe"""
     #Read in that data
     dfs = []
     for record in records:
