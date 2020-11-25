@@ -27,7 +27,7 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
     #Read in that data
     dfs = []
     for record in records:
-        #compute index
+        #compute index from layout_code to use correct metadata
         layout_code = int(record[0:2])
         if layout_code == 99: continue#layout_code = 13
     
@@ -37,7 +37,7 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
         col_widths = list(zip(bounds[0::1],bounds[1::1]))
         data_type = meta_data.DTYPES[layout_code-1]
        
-        #Read all the entries according to fw
+        #Read all the entries according to meta_data and collect them as a list of dicts
         entry = []
         for w,dt in zip(col_widths,data_type): 
             data = record[w[0]:w[1]]
@@ -45,8 +45,8 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
            # else: data = float(data) #FIX THIS TO GET CLEANER ENTRIES...
            #     if data == 0: data = np.nan
             entry.append(data)
+
         d = dict(zip(meta_data.NAMES[layout_code-1],entry)) 
-        #Build data frame for entry
         dfs.append(d)
     
     df = pd.DataFrame(dfs)
@@ -57,5 +57,6 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
 #Link up df_meta and replace entries from each table as specified
 if __name__ == "__main__":
     fn = "CW070106.txt"
+#    fn = "CD050106.txt"
     df = read_multi_fwf(split_fw(read_data(fn)))
     
