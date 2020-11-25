@@ -1,0 +1,256 @@
+STATUS_ID ,STATUS_DESCRIPTION,CORP_TYPE_ID,CORP_TYPE,PERPETUAL_FLAG,DESCRIPTION,NONPROFIT_SUBTYPE_ID,CORP_TYPE_ID,DESCRIPTION,EXPIRATION_TYPE,DESCRIPTION,NAME_STATUS_ID,STATUS,NAME_TYPE_ID,NAME_DESCRIPTION,COUNTY_TYPE,DESCRIPTION,CAPACITY_ID,CORP_TYPE_ID DESCRIPTION,ACTION,DESCRIPTION,TABLE_ID,TABLE NAME,DESCRIPTION,TABLE_ID,TABLE NAME,DESCRIPTION ,FIELD_ID,TABLE_ID,FIELD_NAME,FIELD_ID,TABLE_ID,FIELD_NAME,COUNTY_ID,COUNTY_NAME
+1 ,In existence,1,Domestic For-Profit Corporation,1,Perpetual,1,8,Agricultural and Livestock Pool,NULL,If Perpetual,1,In use,1,Legal,Space or NULL,Name is NOT Assumed,1,Survivor,ADD,Field was added,14,Corp_Address,Corp Address,26,Corp_Capacity,Corp Capacity,67,14,ADDRESS_ID,184,26,Capacity_ID,1,ANDERSON
+2 ,Report due,2,Foreign For-Profit Corporation,0,Non-perpetual,2,8,Agricultural Finance Corporation,Any positive numeric number,"Non-perpetual, expiration duration.  (The duration in years.)",2,Prior,2,Fictitious,LIST,Assumed name for listed counties,2,Non-Survivor,UPDATE,Field was updated,16,Corp_Agent,Corp Agent,40,Corp_Name_Status,Corp Name Status,68,14,ADDRESS1,185,26,Description,2,ANDREWS
+3 ,RA notice sent,3,Domestic Professional Corporation,,,3,8,Business Development Corporation,,,3,Inactive,3,Assumed,ALL,Assumed name for all Texas counties,3,Resulting Entity,DELETE,Field was deleted,17,Corp_Agent_Data,Corp Agent Data,41,Corp_Name_Type,Corp Name Type,69,14,ADDRESS2,186,26,Merger,3,ANGELINA
+4 ,Forfeited rights,4,Foreign Professional Corporation,,,4,8,Cemetery Corporation,,,4,Reserved,,,,,4,Converting,,,18,Corp_Associated_Entity_Data,Corp Associated Entity Data,45,Corp_Nonprofit_Subtype,Corp Nonprofit Subtype,70,14,CITY,260,40,Name_Status_ID,4,ARANSAS
+5 ,Delinquent,5,Professional Association,,,5,8,Cooperative Association,,,5,Registered,,,,,5,Converted,,,19,Corp_Audit_Log,Corp Audit Log,60,Corp_Status,Corp Status,71,14,STATE,261,40,Status,5,ARCHER
+6 ,Forfeited existence,6,Domestic Limited Liability Company (LLC),,,6,8,Cooperative Credit Association,,,6,Expired,,,,,6,Acquiring,,,28,Corp_Data,Corp Data,61,Corp_Type,Corp Type,72,14,ZIP_CODE,262,40,Assumed_Name_Flag,6,ARMSTRONG
+7 ,Voluntarily dissolved,7,Foreign Limited Liability Company (LLC),,,7,8,Cooperative Marketing Association,,,7,Withdrawn,,,,,7,Acquired,,,33,Corp_Filing,Corp Filing,64,County,County,73,14,ZIP_EXTENSION,263,40,Availability_Flag,7,ATASCOSA
+8 ,Involuntarily dissolved,8,Domestic Nonprofit Corporation,,,8,8,Cultural Education Facilities Corporation,,,8,Terminated,,,,,8,Consolidated,,,42,Corp_Names_Data,Corp Names Data,,,,74,14,COUNTRY,264,40,Description,8,AUSTIN
+9 ,Judicially dissolved,9,Foreign Nonprofit Corporation,,,9,8,Electric Cooperative,,,9,Revoked,,,,,9,Consolidating,,,46,Corp_Officer_Data,Corp Officer Data,,,,81,16,AGENT_ID,265,41,Name_Type_ID,9,BAILEY
+10 ,Revoked,10,Domestic Limited Partnership (LP),,,10,8,Farmers Cooperative Society,,,10,Used,,,,,11,Predecessor,,,,,,,,,82,16,ADDRESS_ID,266,41,Name_Description,10,BANDERA
+11 ,Expired,11,Foreign Limited Partnership (LP),,,11,8,Group Hospital Service Corporation,,,11,Active,,,,,12,Underlying Partnership,,,,,,,,,83,16,BUSINESS_NAME,281,45,Nonprofit_Subtype_ID,11,BASTROP
+12 ,Withdrawn,12,Domestic Limited Liability Partnership (LLP),,,12,8,Health Facilities Development Corporation,,,12,Expired,,,,,13,LLP Registration,,,,,,,,,84,16,AGENT_LAST_NAME,282,45,Description,12,BAYLOR
+13 ,Merged,13,Foreign Limited Liability Partnership (LLP),,,13,8,Health Related Institution Cooperative Association,,,13,Abandoned,,,,,,,,,,,,,,,85,16,AGENT_FIRST_NAME,283,45,Addtional_Certificate_Flag,13,BEE
+14 ,Converted,14,Unincorporated Nonprofit Association,,,14,8,Hospital Laundry Cooperative Association,,,14,Entity Inactive,,,,,,,,,,,,,,,86,16,AGENT_MIDDLE_NAME,284,45,Periodic_Report_Required_Flag,14,BELL
+15 ,Consolidated,15,Defense-Base Development Authority,,,15,8,Housing Finance Corporation,,,15,Entity Deleted,,,,,,,,,,,,,,,87,16,AGENT_SUFFIX_ID,358,60,Status_ID,15,BEXAR
+16 ,Cancelled,16,Texas State Financial Institution,,,16,8,Industrial Development Corporation,,,16,Striken,,,,,,,,,,,,,,,88,17,FILING_NUMBER,359,60,Status_Description,16,BLANCO
+17 ,Terminated,17,Foreign Corporate Fiduciary,,,17,8,Lodge,,,17,Pend. for Review,,,,,,,,,,,,,,,89,17,ADDRESS_ID,360,60,Category,17,BORDEN
+18 ,Law repealed,18,General Partnership Merged with other Entity,,,18,8,Mutual Loan Corporation,,,18,Locked,,,,,,,,,,,,,,,90,17,BUSINESS_NAME,361,60,Description,18,BOSQUE
+19 ,Stricken,19,Non-existent Limited Partnership Disclaimer,,,19,8,Non-Profit Legal Services Corporation,,,,,,,,,,,,,,,,,,,91,17,CREATION_DATE,362,61,Corp_Type_ID,19,BOWIE
+20 ,Deleted,20,Pre-1999 Foreign or Out-of-State Bank or foreign financial Institution,,,20,8,Private Purchasing Cooperative,,,,,,,,,,,,,,,,,,,92,17,INACTIVE_DATE,377,64,County_ID,20,BRAZORIA
+21,Pending Review,21,Trust Corporation,,,21,8,Public Facility Corporation,,,,,,,,,,,,,,,,,,,93,17,AGENT_LAST_NAME,378,64,County_State_ID,21,BRAZOS
+,,22,Assumed Name Entity,,,22,8,Telephone Cooperative,,,,,,,,,,,,,,,,,,,94,17,AGENT_FIRST_NAME,379,64,County_Usps_Approved_Flag,22,BREWSTER
+,,23,Foreign Financial Institution,,,23,8,Transportation Corporation,,,,,,,,,,,,,,,,,,,95,17,AGENT_MIDDLE_NAME,380,64,County_Name,23,BRISCOE
+,,24,Foreign Business Trust,,,24,8,Water Supply Corporation,,,,,,,,,,,,,,,,,,,96,17,AGENT_SUFFIX_ID,1281,61,Corp_Type,24,BROOKS
+,,25,Foreign Real Estate Investment Trust,,,25,9,Agricultural and Livestock Pool,,,,,,,,,,,,,,,,,,,97,17,NORMALIZED_NAME,1282,61,Subtype_Flag,25,BROWN
+,,26,Other Foreign Entity,,,26,9,Agricultural Finance Corporation,,,,,,,,,,,,,,,,,,,98,18,FILING_NUMBER,1283,61,Domestic_Flag,26,BURLESON
+,,27,Foreign Professional Association,,,27,9,Business Development Corporation,,,,,,,,,,,,,,,,,,,99,18,ASSOCIATED_ENTITY_ID,1284,61,Merger_Resulting_Entity_Flag,27,BURNET
+,,28,Application for Name Reservation,,,28,9,Cemetery Corporation,,,,,,,,,,,,,,,,,,,100,18,ASSOCIATED_ENTITY_CORP_TYPE_ID,1285,61,Reinstatement_Period,28,CALDWELL
+,,29,Railroad Company,,,29,9,Cooperative Association,,,,,,,,,,,,,,,,,,,101,18,CAPACITY_ID,1286,61,Name_Availability_Flag,29,CALHOUN
+,,30,Other Foreign Limited Partnership,,,30,9,Cooperative Credit Association,,,,,,,,,,,,,,,,,,,102,18,ASSOCIATED_ENTITY_NAME,,,,30,CALLAHAN
+,,99,Other Entity/Organization,,,31,9,Cooperative Marketing Association,,,,,,,,,,,,,,,,,,,103,18,ENTITY_FILING_NUMBER,,,,31,CAMERON
+,,,,,,32,9,Cultural Education Facilities Corporation,,,,,,,,,,,,,,,,,,,104,18,ENTITY_FILING_DATE,,,,32,CAMP
+,,,,,,33,9,Electric Cooperative,,,,,,,,,,,,,,,,,,,105,18,INACTIVE_DATE,,,,33,CARSON
+,,,,,,34,9,Farmers Cooperative Society,,,,,,,,,,,,,,,,,,,106,18,JURISDICTION_STATE,,,,34,CASS
+,,,,,,35,9,Group Hospital Service Corporation,,,,,,,,,,,,,,,,,,,107,18,JURISDICTION_COUNTRY,,,,35,CASTRO
+,,,,,,36,9,Health Facilities Development Corporation,,,,,,,,,,,,,,,,,,,108,19,AUDIT_DATE,,,,36,CHAMBERS
+,,,,,,37,9,Health Related Institution Cooperative Association,,,,,,,,,,,,,,,,,,,109,19,CURRENT_USER_ID,,,,37,CHEROKEE
+,,,,,,38,9,Hospital Laundry Cooperative Association,,,,,,,,,,,,,,,,,,,110,19,PREVIOUS_USER_ID,,,,38,CHILDRESS
+,,,,,,39,9,Housing Finance Corporation,,,,,,,,,,,,,,,,,,,111,19,MODULE_ID,,,,39,CLAY
+,,,,,,40,9,Industrial Development Corporation,,,,,,,,,,,,,,,,,,,112,19,REFERENCE_TYPE_ID,,,,40,COCHRAN
+,,,,,,41,9,Lodge,,,,,,,,,,,,,,,,,,,113,19,DOCUMENT_NUMBER,,,,41,COKE
+,,,,,,42,9,Mutual Loan Corporation,,,,,,,,,,,,,,,,,,,114,19,REFERENCE_NUMBER,,,,42,COLEMAN
+,,,,,,43,9,Non-Profit Legal Services Corporation,,,,,,,,,,,,,,,,,,,115,19,TABLE_ID,,,,43,COLLIN
+,,,,,,44,9,Private Purchasing Cooperative,,,,,,,,,,,,,,,,,,,116,19,FIELD_ID,,,,44,COLLINGSWORTH
+,,,,,,45,9,Public Facility Corporation,,,,,,,,,,,,,,,,,,,117,19,PREVIOUS_VALUE,,,,45,COLORADO
+,,,,,,46,9,Telephone Cooperative,,,,,,,,,,,,,,,,,,,118,19,CURRENT_VALUE,,,,46,COMAL
+,,,,,,47,9,Transportation Corporation,,,,,,,,,,,,,,,,,,,119,19,ACTION,,,,47,COMANCHE
+,,,,,,48,9,Water Supply Corporation,,,,,,,,,,,,,,,,,,,120,19,AUDIT_COMMENT,,,,48,CONCHO
+,,,,,,49,23,Bank,,,,,,,,,,,,,,,,,,,179,28,FILING_NUMBER,,,,49,COOKE
+,,,,,,50,23,Federal Bank,,,,,,,,,,,,,,,,,,,180,28,STATUS_ID,,,,50,CORYELL
+,,,,,,51,23,Savings Bank,,,,,,,,,,,,,,,,,,,181,28,ADDRESS_ID,,,,51,COTTLE
+,,,,,,52,23,Federal Savings Bank,,,,,,,,,,,,,,,,,,,182,28,CORP_TYPE_ID,,,,52,CRANE
+,,,,,,53,23,Savings & Loan Assn.,,,,,,,,,,,,,,,,,,,183,28,NONPROFIT_SUBTYPE_ID,,,,53,CROCKETT
+,,,,,,54,23,Federal Savings & Loan Assn.,,,,,,,,,,,,,,,,,,,184,28,NAME,,,,54,CROSBY
+,,,,,,55,23,Credit Union,,,,,,,,,,,,,,,,,,,185,28,PERPETUAL_FLAG,,,,55,CULBERSON
+,,,,,,56,23,Federal Credit Union,,,,,,,,,,,,,,,,,,,186,28,CREATION_DATE,,,,56,DALLAM
+,,,,,,57,23,Trust Company,,,,,,,,,,,,,,,,,,,187,28,EXPIRATION_DATE,,,,57,DALLAS
+,,,,,,58,8,Local Government Corporation,,,,,,,,,,,,,,,,,,,188,28,INACTIVE_DATE,,,,58,DAWSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,189,28,FORMATION_DATE,,,,59,DEAF SMITH
+,,,,,,,,,,,,,,,,,,,,,,,,,,,190,28,REPORT_DUE_DATE,,,,60,DELTA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,191,28,TAXID,,,,61,DENTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,192,28,FICTITIOUS_NAME,,,,62,DEWITT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,193,28,FOREIGN_FEIN,,,,63,DICKENS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,194,28,FOREIGN_STATE,,,,64,DIMMIT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,195,28,FOREIGN_COUNTRY,,,,65,DONLEY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,196,28,FOREIGN_FORMATION_DATE,,,,66,DUVAL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,197,28,EXPIRATION_TYPE,,,,67,EASTLAND
+,,,,,,,,,,,,,,,,,,,,,,,,,,,208,33,DOCUMENT_NUMBER,,,,68,ECTOR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,209,33,FILING_NUMBER,,,,69,EDWARDS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,210,33,FILING_TYPE_ID,,,,70,ELLIS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,211,33,FILING_TYPE,,,,71,EL PASO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,212,33,ENTRY_DATE,,,,72,ERATH
+,,,,,,,,,,,,,,,,,,,,,,,,,,,213,33,FILING_DATE,,,,73,FALLS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,214,33,EFFECTIVE_DATE,,,,74,FANNIN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,215,33,ENTRY_USER_ID,,,,75,FAYETTE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,216,33,LAST_MODIFIED_DATE,,,,76,FISHER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,217,33,LAST_MODIFIED_USER_ID,,,,77,FLOYD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,218,33,PAGE_COUNT,,,,78,FOARD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,219,33,IMAGED,,,,79,FORT BEND
+,,,,,,,,,,,,,,,,,,,,,,,,,,,220,33,EFFECTIVE_COND_FLAG,,,,80,FRANKLIN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,221,33,INACTIVE_DATE,,,,81,FREESTONE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,222,33,VERIFIED_FLAG,,,,82,FRIO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,265,42,FILING_NUMBER,,,,83,GAINES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,266,42,NAME_ID,,,,84,GALVESTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,267,42,NAME_STATUS_ID,,,,85,GARZA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,268,42,NAME_TYPE_ID,,,,86,GILLESPIE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,269,42,NAME,,,,87,GLASSCOCK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,270,42,CREATION_DATE,,,,88,GOLIAD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,271,42,INACTIVE_DATE,,,,89,GONZALES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,272,42,EXPIRE_DATE,,,,90,GRAY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,273,42,ALL_COUNTIES_FLAG,,,,91,GRAYSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,274,42,CONSENT_FILING_NUMBER,,,,92,GREGG
+,,,,,,,,,,,,,,,,,,,,,,,,,,,275,42,SEARCH_ID,,,,93,GRIMES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,285,46,FILING_NUMBER,,,,94,GUADALUPE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,286,46,OFFICER_ID,,,,95,HALE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,287,46,ADDRESS_ID,,,,96,HALL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,288,46,OFFICER_TITLE,,,,97,HAMILTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,289,46,BUSINESS_NAME,,,,98,HANSFORD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,290,46,CREATION_DATE,,,,99,HARDEMAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,291,46,INACTIVE_DATE,,,,100,HARDIN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,292,46,LAST_NAME,,,,101,HARRIS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,293,46,FIRST_NAME,,,,102,HARRISON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,294,46,MIDDLE_NAME,,,,103,HARTLEY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,295,46,SUFFIX_ID,,,,104,HASKELL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,296,46,LAST_MODIFIED_DATE,,,,105,HAYS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,297,46,NORMALIZED_NAME,,,,106,HEMPHILL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1631,18,Document_Number,,,,107,HENDERSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1638,28,Last_Report_Filed_Date,,,,108,HIDALGO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1681,16,Deactivate_Flag,,,,109,HILL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1697,28,BOC_DATE,,,,110,HOCKLEY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1698,28,BOC_FLAG,,,,111,HOOD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1699,28,TX_DOB,,,,112,HOPKINS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,1700,28,TEMPTAXID,,,,113,HOUSTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,114,HOWARD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,115,HUDSPETH
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,116,HUNT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,117,HUTCHINSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,118,IRION
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,119,JACK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,120,JACKSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,121,JASPER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,122,JEFF DAVIS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,123,JEFFERSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,124,JIM HOGG
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,125,JIM WELLS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,126,JOHNSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,127,JONES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,128,KARNES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,129,KAUFMAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,130,KENDALL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,131,KENEDY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,132,KENT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,133,KERR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,134,KIMBLE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,135,KING
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,136,KINNEY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,137,KLEBERG
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,138,KNOX
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,139,LAMAR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,140,LAMB
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,141,LAMPASAS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,142,LASALLE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,143,LAVACA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,144,LEE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,145,LEON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,146,LIBERTY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,147,LIMESTONE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,148,LIPSCOMB
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,149,LIVE OAK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,150,LLANO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,151,LOVING
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,152,LUBBOCK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,153,LYNN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,154,MADISON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,155,MARION
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,156,MARTIN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,157,MASON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,158,MATAGORDA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,159,MAVERICK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,160,MCCULLOCH
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,161,MCLENNAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,162,MCMULLEN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,163,MEDINA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,164,MENARD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,165,MIDLAND
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,166,MILAM
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,167,MILLS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,168,MITCHELL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,169,MONTAGUE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,170,MONTGOMERY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,171,MOORE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,172,MORRIS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,173,MOTLEY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,174,NACOGDOCHES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,175,NAVARRO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,176,NEWTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,177,NOLAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,178,NUECES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,179,OCHILTREE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,180,OLDHAM
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,181,ORANGE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,182,PALO PINTO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,183,PANOLA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,184,PARKER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,185,PARMER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,186,PECOS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,187,POLK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,188,POTTER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,189,PRESIDIO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,190,RAINS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,191,RANDALL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,192,REAGAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,193,REAL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,194,RED RIVER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,195,REEVES
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,196,REFUGIO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,197,ROBERTS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,198,ROBERTSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,199,ROCKWALL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,200,RUNNELS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,201,RUSK
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,202,SABINE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,203,SAN AUGUSTINE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,204,SAN JACINTO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,205,SAN PATRICIO
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,206,SAN SABA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,207,SCHLEICHER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,208,SCURRY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,209,SHACKELFORD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,210,SHELBY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,211,SHERMAN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,212,SMITH
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,213,SOMERVELL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,214,STARR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,215,STEPHENS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,216,STERLING
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,217,STONEWALL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,218,SUTTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,219,SWISHER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,220,TARRANT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,221,TAYLOR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,222,TERRELL
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,223,TERRY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,224,THROCKMORTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,225,TITUS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,226,TOM GREEN
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,227,TRAVIS
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,228,TRINITY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,229,TYLER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,230,UPSHUR
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,231,UPTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,232,UVALDE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,233,VAL VERDE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,234,VAN ZANDT
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,235,VICTORIA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,236,WALKER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,237,WALLER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,238,WARD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,239,WASHINGTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,240,WEBB
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,241,WHARTON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,242,WHEELER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,243,WICHITA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,244,WILBARGER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,245,WILLACY
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,246,WILLIAMSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,247,WILSON
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,248,WINKLER
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,249,WISE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,250,WOOD
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,251,YOAKUM
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,252,YOUNG
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,253,ZAPATA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,254,ZAVALA
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,255,VENDOR
