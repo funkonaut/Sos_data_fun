@@ -1,6 +1,7 @@
 """The module to read in SOS fwf data"""
 
 from itertools import accumulate
+import re
 import pandas as pd
 import numpy as np
 import meta_data
@@ -13,15 +14,27 @@ def read_data(fn: str) -> str:
     data = data.replace("\n","")
     return data
 
-
+#Maybe redo this so it defaults to 560 and if the first 2 arent 01-13 and 99 and the next 10 aren't digits find the width to make it so
 def split_fw(data: str, n=560, daily=True) -> list:
     """The function to split a txt file according to a fixed width (n)."""
-    if daily: 
-        records = [data[i:i+n] if data[i:i+n][0:2]=="11" else data[i:i+562] for i in range(0, len(data), n)]
-    else: 
-        records = [data[i:i+n] for i in range(0, len(data), n)]
-    return records
-
+    l = []
+    if daily:
+        i = 0
+        while i < len(data):
+            if data[i:i+n].startswith("11"):#last entry is 560?
+                n = 562
+            elif re.match('\d{28}EDIT\s{6}(\s|(Vendor)|(Updated))',data[i:i+n])!=None:
+                n = 260
+            elif re.match('\d{20}ADD\s{8}',data[i:i+n])!=None:
+                n = 252
+            else:
+                n = 560
+            l.append(data[i:i+n])
+            i += n
+        return l               
+    else:
+        l = [data[i:i+n] for i in range(0, len(data), n)]
+        return l
 
 #Read sub fwfs according to specified fw from layout_code 
 def read_multi_fwf(records: list) -> pd.DataFrame:
@@ -60,8 +73,7 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
 #Link up df_meta and replace entries from each table as specified
 if __name__ == "__main__":
     fn = "CD241120.txt"
-#    fn = "CD050106.txt"
 #    fn = "CW211120.txt"
-    data = split_fw(read_data(fn))
+    l = split_fw(read_data(fn))
 #    df = read_multi_fwf(split_fw(read_data(fn)))
     
