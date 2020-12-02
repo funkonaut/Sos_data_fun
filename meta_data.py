@@ -48,7 +48,7 @@ associated_entity_rec_w = [0,2,10,6,150,12,8,64,4,8,4,292]
 associated_entity_rec_dt = ["N","N","N","C","N","N","C","C","N","N","C"]
 associated_entity_rec_names = ["layout_code","filing_num","associated_entity_id","associated_entity_name","entity_filing_number","entity_filing_date","jurisdiction_country","jurisdiction_state","inactive_date","capacity_id","filler"]
 #Record layout code 11 Filing History Record 12>10 392>394
-filing_hist_rec_w = [0,2,10,14,10,96,8,8,8,2,8,394]
+filing_hist_rec_w = [0,2,10,14,12,96,8,8,8,2,8,392]
 filing_hist_rec_dt = ["N","N","N","N","C","N","N","N","N","N","C"]
 filing_hist_rec_names = ["layout_code","filing_num","document_number","filing_type_id","filing_type","entry_date","filing_date","effective_date","effective_cond_flag","inactive_date","filler"]
 #Record layout code 12 Corp Audit Log Record

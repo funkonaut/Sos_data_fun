@@ -8,15 +8,18 @@ import meta_data
 
 def read_data(fn: str) -> str:
     """The function to read in a txt file and strip newlines."""
-    with open(fn,"r") as fh:
+    with open(fn,"r",encoding='cp1252') as fh:
         data = fh.read()
     data = data.replace("\n","")
     return data
 
 
-def split_fw(data: str, n=560) -> list:
+def split_fw(data: str, n=560, daily=True) -> list:
     """The function to split a txt file according to a fixed width (n)."""
-    records = [data[i:i+n] for i in range(0, len(data), n)]
+    if daily: 
+        records = [data[i:i+n] if data[i:i+n][0:2]=="11" else data[i:i+562] for i in range(0, len(data), n)]
+    else: 
+        records = [data[i:i+n] for i in range(0, len(data), n)]
     return records
 
 
@@ -56,7 +59,9 @@ def read_multi_fwf(records: list) -> pd.DataFrame:
 #Clean up "N" entries to display cleaner
 #Link up df_meta and replace entries from each table as specified
 if __name__ == "__main__":
-    fn = "CW070106.txt"
+    fn = "CD241120.txt"
 #    fn = "CD050106.txt"
-    df = read_multi_fwf(split_fw(read_data(fn)))
+#    fn = "CW211120.txt"
+    data = split_fw(read_data(fn))
+#    df = read_multi_fwf(split_fw(read_data(fn)))
     
