@@ -1,4 +1,5 @@
 # SOS DATA
+## Where the data in CD241120.txt strays from the meta data outlined in corp-bulkorder-layout fixed.doc
 - All Record Layout 11 entries having length of 562 (already noted in previous email)
 - Record Layout 12 entries also seem to have an "EDIT" ACTION only (ADD,UPDATE,DELETE are in the revised corp-bulkorder-layout document you sent over)
 - Record Layout 12 entries can be of length 560,260,or 252 depending on their ACTION and CURRENT_VALUE fields, specifically: 
