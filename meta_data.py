@@ -58,8 +58,9 @@ audit_rec_names = ["layout_code","filing_num","audit_date","table_id","field_id"
 #Record layout code 99 Totals Record
 code99_rec_w = [0,2,10,8,12,12,12,12,12,12,12,12,12,12,12,12,12,384]
 code99_rec_dt = ["N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N","N"]
-code99_rec_names = ["layout_code","all_9s_wtf","date_of_run","count_01","count_02","count_03","count_04","count_05""count_06","count_07","count_08","count_09","count_10","count_11","count_12","count_13","filler"]
+code99_rec_names = ["layout_code","all_9s","date_of_run","count_01","count_02","count_03","count_04","count_05","count_06","count_07","count_08","count_09","count_10","count_11","count_12","count_13","filler"]
 
 WIDTHS = [delete_rec_w,master_rec_w,address_rec_w,reserved_rec_w,ra_business_rec_w,ra_personal_rec_w,co_business_rec_w ,co_personal_rec_w ,charter_names_rec_w,associated_entity_rec_w,filing_hist_rec_w ,audit_rec_w,code99_rec_w]
 DTYPES = [delete_rec_dt,master_rec_dt,address_rec_dt,reserved_rec_dt,ra_business_rec_dt,ra_personal_rec_dt,co_business_rec_dt ,co_personal_rec_dt ,charter_names_rec_dt,associated_entity_rec_dt,filing_hist_rec_dt ,audit_rec_dt,code99_rec_dt]
 NAMES = [delete_rec_names,master_rec_names,address_rec_names,reserved_rec_names,ra_business_rec_names,ra_personal_rec_names,co_business_rec_names ,co_personal_rec_names ,charter_names_rec_names,associated_entity_rec_names,filing_hist_rec_names ,audit_rec_names,code99_rec_names]
+TABLE_NAMES = ["delete_all_log","master","address","reserved","registered_agent_business","registered_agent_personal","charter_officer_business","charter_officer_personal","charter_names","associated_entity","filing_hist","audit_log","totals_log"]
