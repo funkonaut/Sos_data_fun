@@ -5,7 +5,7 @@
 - Or run the .dump file `pg_restore -O -x -c -d {local_database_name} {dumped_file_name.dump}`
 - Create a .env file with LOCAL\_DATABASE\_URL set to your database url 
     - Use psql \conninfo to get info to make url `postgresql://[user[:password]@][netloc][:port][,...][/dbname]`
-- Create a folder named "data" and place your fixed width txt files there
+- Create a folder named "data" in the projects parent directory and place your fixed width txt files there
 - Run fwf\_read.py once the above steps are completed to populate the SQL tables
 
 ## Data Cleanup
