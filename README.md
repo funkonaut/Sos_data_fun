@@ -1,5 +1,6 @@
 # SOS DATA
 ## Database Setup and Population
+- Create a virtual python environment and `pip install -r requirements.txt`
 - Use postgreSQL to create a database named Sos\_data\_fun or whatever you would like
 - Use the sql files in the sql folder to create the tables to populate `psql -d {local_database_name} -f {filename}`
 - Or run the .dump file `pg_restore -O -x -c -d {local_database_name} {dumped_file_name.dump}`
