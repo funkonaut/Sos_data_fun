@@ -1,4 +1,7 @@
 numpy
 pandas
+postal
 psycopg2-binary
 python-dotenv
+selenium
+webdriver-manager

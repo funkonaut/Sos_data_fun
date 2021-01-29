@@ -1,6 +1,13 @@
+import pandas as pd
+####################
 import os
+import sys
+from io import StringIO
+from logger import logger
 from dotenv import load_dotenv
 import psycopg2
+from psycopg2 import sql
+import psycopg2.extras as extras
 import meta_data as md
 
 load_dotenv()
@@ -14,46 +21,60 @@ def get_database_connection(local_dev=True):
     return conn
 
 
-def copy_from_file(conn, df, table):
+def execute_values(conn, df, table):
     """
-    Here we are going save the dataframe on disk as 
-    a csv file, load the csv file  
-    and use copy_from() to copy it to the table
+    Using psycopg2.extras.execute_values() to insert the dataframe
     """
-    # Save the dataframe to disk
-    tmp_df = "./tmp_dataframe.csv"
-    df.to_csv(tmp_df, index_label='id', header=False)
-    f = open(tmp_df, 'r')
+    #Convert nans to None for SQL and clean up
+    df = df.where(pd.notnull(df), None)
+    # Create a list of tupples from the dataframe values
+    tuples = [tuple(x) for x in df.to_numpy()]
+    # Comma-separated dataframe columns
+    cols = ','.join(list(df.columns))
+    # SQL quert to execute
+    query  = "INSERT INTO %s(%s) VALUES %%s" % (table, cols)
     cursor = conn.cursor()
     try:
-        cursor.copy_from(f, table, sep=",")
+        extras.execute_values(cursor, query, tuples)
         conn.commit()
     except (Exception, psycopg2.DatabaseError) as error:
-        os.remove(tmp_df)
-        print("Error: %s" % error)
+        logger.error(f"Error {table}: {error}")
+        print(f"Error {table}: {error}")
         conn.rollback()
         cursor.close()
         return 1
-    print("copy_from_file() done")
+    logger.info(f"execute_values for {table} done")
     cursor.close()
-    os.remove(tmp_df)
 
 
 def filter_df(df,layout_code):
-#filter the read in dataframe for the record larout code
-    return df.loc[df["layout_code"].eq(layout_code)][md.TABLE_NAMES[layout_code-1]]
+#filter the read in dataframe for the record layout code
+    if layout_code == 99:
+        cols = md.NAMES[13-1]
+    else:
+        cols = md.NAMES[layout_code-1]
+
+    if "filler" in cols:    
+        cols.remove("filler")    
+   
+    return df.loc[df["layout_code"].eq(layout_code)][cols]
 
 
 def dump_df(df):
     conn = get_database_connection(local_dev=local_dev)
+    #make sure type is consistant
+    df['layout_code'] = df['layout_code'].astype(int)
     for layout_code in df["layout_code"].unique():
         df_f = filter_df(df,layout_code) #filtered dataframe
-        layout_code = int(layout_code)
         if layout_code == 99:
-            layout_code = 13
-        copy_from_file(conn, df_f, md.TABLE_NAMES[layout_code-1]) 
-    
+            table = md.TABLE_NAMES[13-1]
+        else:
+            table = md.TABLE_NAMES[layout_code-1]
+        execute_values(conn, df_f, table) 
 
-if __name__ == "__main__":
-   #main()
-   
+
+def dump_to_df(conn,table):
+    df = pd.read_sql_query('SELECT * FROM "%s"'%(table),con=conn)
+    return df
+
+

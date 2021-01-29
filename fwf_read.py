@@ -1,40 +1,50 @@
 """The module to read in SOS fwf data into an SQL database"""
 import os
+import sys
+from datetime import datetime, date
 from itertools import accumulate
+from logger import logger 
 import re
 import pandas as pd
 import numpy as np
 import database as db 
 import meta_data as md
+import clean_up as cu
 
 
 def read_data(fn: str) -> str:
     """The function to read in a txt file and strip newlines."""
-    with open(fn,"r",encoding='cp1252') as fh:
-    #with open(fn,"r",encoding='utf-8') as fh:
+    with open(fn,"r",encoding='Latin-1') as fh:
         data = fh.read()
     return data
 
-         
+     
+def convert_date(data):
+    """Helper function to convert a data entry (YYYYDDMM) to a date"""
+    return datetime.strptime(data, '%Y%m%d').date()
+
+
 def split_read_combine(data):
     """The function to split the txt file into seperate entries 
        and then read them into a dict and combine them into a dataframe"""
     l = data.split('\n') #entries seperated by \n
     dfs = [] #array of dictionaries
     e = 0 
+    fw_e = 0
     for record in l:
-       try: 
-           d = read_multi_fwf(record)
-           dfs.append(d)
-       except Exception as error:
-#           print(f"{error}\n{record}") 
-           e += 1
-    print(f"There were {e} errors check log for specifics")
+        try: 
+            d,fw_e = read_multi_fwf(record,fw_e)
+            dfs.append(d)
+        except Exception as error:
+            logger.error(f"{error}\n'{record}'") 
+            e += 1
+    logger.info(f"There were {e} record read errors check log for specifics")
+    logger.info(f"There were {fw_e} fixed width entry (type) errors check log for specifics")
     return pd.DataFrame(dfs) 
        
 
 #Read sub fwfs according to specified fw from layout_code 
-def read_multi_fwf(record):
+def read_multi_fwf(record,fw_e):
     """The helper function to split a fwf file entry's fields according to metadata described
        in corp-bulkorder-layout.doc into a dictionary"""
     #Read in that data
@@ -53,41 +63,52 @@ def read_multi_fwf(record):
     entry = []
     for w,dt in zip(col_widths,data_type): 
         data = record[w[0]:w[1]]
-        if dt == "C": data = data.rstrip()
-        else:
+        if dt == "C": #Character type
+            data = data.rstrip() #left justified space padded
+            data = data.upper() #TEXT data should be uppercased do we want to strip punctuation too?
+        elif dt == "D": #Date type
+            try:
+                data = data.lstrip('0') #right justified 0 padded
+                data = convert_date(data)                 
+            except Exception as error:
+                data = data.strip()
+                if data != "":
+                    fw_e += 1
+                    logger.error(f"{error}: Could not convert {data} to date")
+                data = None
+        else:# N (numeric type)
             try: 
                 data = data.lstrip('0') 
+                data = int(data)
             except Exception as error:
-                print(f"Left strip error: {error}\n{data}\n{dt}\n{w}\n\n")
-                data = np.nan
+                data = data.strip()
+                if data != "":
+                    fw_e += 1
+                    logger.error(f"{error}: Could not convert {data} to int")
+                data = None
         entry.append(data)
 
     d = dict(zip(md.NAMES[layout_code-1],entry)) 
-    return d
+    return d,fw_e
 
 
 def main():
     """Read in all files in data directory and dump them to a data table depeding on their layout_code"""
     directory = "../data/"
+    logger.info(f"Reading and populating SOS data")
     for fn in os.listdir(directory):
-        #log fn
-        data = read_data(fn)
-        df = split_read_combine(data)
-        #link csv meta_data maybe this should be done elsewhere so as to conserve memory? when fetching data from sql
-        db.dump_df(df)
-        #dump to sheets
-          #filter df by layout code and meta_data.NAMES[layout_code-1] 
+        if fn.endswith(".txt"):#Only read in txt files
+            logger.info(f"Reading in file: {fn}")
+            data = read_data(directory + fn)
+            df = split_read_combine(data)
+            logger.info(f"Read in file: {fn}")
+            #Convert nans to None for SQL and clean up
+#            df = df.where(pd.notnull(df), None)
+            #clean addresses
+#            df = cu.normalize_dataframe(df)
+            db.dump_df(df) #also links meta_data and types?
+#    cu.delete_records()
+    logger.info(f"Read and populated SOS data")
 
-#TO DO: 
-#test this for one file 
-#TEST DUMP to SQL table for one file
-
-#Link up df_meta and replace entries from each table as specified
-#Convert dates to datetime objects
-#Log record errors change prints to log
-#RUN CODE
 if __name__ == "__main__":
-    #main()  
-    fn = "../data/CM000121_10.txt"
-    data = read_data(fn)
-    df = split_read_combine(data)
+    main()  
