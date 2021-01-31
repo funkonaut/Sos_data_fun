@@ -5,7 +5,6 @@ as the schema is already in the github
 """
 import os
 from dotenv import load_dotenv
-import numpy as np
 import meta_data as md
 import database as db
 import update_TCAD_data as tcad
@@ -133,4 +132,8 @@ def main():
 #rm *.sql in ./sql
 #run code
 if __name__ == "__main__": 
-    main()
+#    main()
+    df = tcad.read_tcad()
+    create_tcad_schema()
+    conn = db.get_database_connection(local_dev=local_dev)
+    db.execute_values(conn,df,"tcad")

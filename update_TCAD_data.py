@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from logger import logger 
 import time
+import numpy as np
 import pandas as pd
 import selenium
 from selenium import webdriver
@@ -64,8 +65,8 @@ def read_tcad(fn='../data/TCAD/'):
     df_tcad = df_tcad.apply(lambda x: x.astype(str).str.upper())
     ##Upper case all text strip punctuation?
     ##Convert to nan will convert to None in execute_values()
-    df_tcad.replace("NAN",np.nan) 
-
+    df_tcad = df_tcad.replace("NAN",np.nan) 
+    input(df_tcad)
     logger.info(f"Successfully read TCAD data")
     return df_tcad 
 

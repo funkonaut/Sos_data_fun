@@ -1,0 +1,11 @@
+-- BUSINESS NAMES/Associations INDEX FOR FAST SEARCHING AND RECORD LINKAGE
+--master(name)
+--master(dba_name)
+--registered_agent_business(business_name)
+--charter_officer_businness(business_name)
+--charrer_names(name)
+
+-- AGENT NAMES INDEX FOR FAST SEARCHING AND RECORD LINKAGE
+--registered_agent_personal(concat_ws(' ', agent_first_name, agent_middle_name, agent_last_name, agent_suffix)
+--charter_officer_personal(concat_ws(' ', first_name, middle_name, last_name, suffix))
+--associated_entity(associated_entity_name)
