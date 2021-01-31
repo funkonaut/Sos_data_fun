@@ -9,6 +9,7 @@ import meta_data as md
 import database as db
 import update_TCAD_data as tcad
 import fwf_read as fwf
+from logger import logger
 
 load_dotenv()
 local_dev = os.getenv("LOCAL_DEV") == "true"
@@ -89,16 +90,15 @@ def create_tcad_schema():
     with open(f"./{d}/{fn}", "w") as fh:
         fh.write(schema)
     run_schema(d,fn)
-    
 
-   
-def main():
+
+def create_sos_schema():    
     """Run over all tables in meta_data"""
     for i in range(1,14): #1 indexed cycle thru [1,14) to index into meta data arrays
         #Create main database schema
         table = md.TABLE_NAMES[i-1]
         if table != "reserved": #Dont do reserved
-            print(f"Now creating sql schema {table}")
+#            print(f"Now creating sql schema {table}")
             create_data_table_schema(i-1,table)
 
         #Create meta data schema and populate 
@@ -107,7 +107,12 @@ def main():
         if col is not None:
             create_md_table_schema(col, table)
             populate_meta_data_table(col, table)
-         
+
+   
+def main():
+    logger.info("Creating SOS file schema")
+    create_sos_schema()    
+     
     #Populate SOS data
     logger.info("Running SOS file reads")
     fwf.main()
@@ -124,16 +129,16 @@ def main():
     logger.info("Running address normalization schema")
     run_schema("sql","create_normalized_addresses.sql") 
 
+    #Run normalization code for addresses
+    logger.info("Running index creation for names (biz/person")
+    run_schema("sql","create_name_search_index.sql") 
 
 #To redo:
 #rm error.log
 #dropdb Sos_data_fun
 #createdb Sos_data_fun
-#rm *.sql in ./sql
+#rm .sql in ./sql EXCEPT create_normalized_addresses.sql and create_name_search_index.sql
+#createdb Sos_data_fun
 #run code
 if __name__ == "__main__": 
-#    main()
-    df = tcad.read_tcad()
-    create_tcad_schema()
-    conn = db.get_database_connection(local_dev=local_dev)
-    db.execute_values(conn,df,"tcad")
+    main()
