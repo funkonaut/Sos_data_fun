@@ -1,4 +1,7 @@
-"""The module to read in SOS fwf data into an SQL database"""
+"""
+The module to read in SOS fwf data into an SQL database.
+"""
+
 import os
 import sys
 from datetime import datetime, date
@@ -13,21 +16,20 @@ import clean_up as cu
 
 
 def read_data(fn: str) -> str:
-    """The function to read in a txt file and strip newlines."""
+    """Read in a txt file and strip newlines."""
     with open(fn,"r",encoding='Latin-1') as fh:
         data = fh.read()
     return data
 
      
 def convert_date(data):
-    """Helper function to convert a data entry (YYYYDDMM) to a date"""
+    """Convert a data entry (YYYYDDMM) to a date."""
     return datetime.strptime(data, '%Y%m%d').date()
 
 
 def split_read_combine(data):
-    """The function to split the txt file into seperate entries 
-       and then read them into a dict and combine them into a dataframe"""
-    l = data.split('\n') #entries seperated by \n
+    """Split/read entries into a dict/combine them into a dataframe."""
+    l = data.split('\n') #entries delimited by \n
     dfs = [] #array of dictionaries
     e = 0 
     fw_e = 0
@@ -45,8 +47,7 @@ def split_read_combine(data):
 
 #Read sub fwfs according to specified fw from layout_code 
 def read_multi_fwf(record,fw_e):
-    """The helper function to split a fwf file entry's fields according to metadata described
-       in corp-bulkorder-layout.doc into a dictionary"""
+    """Split a fwf file entry's fields according to metadata described in corp-bulkorder-layout.doc into a dictionary."""
     #Read in that data
     #compute index from layout_code to use correct metadata
     layout_code = int(record[0:2])
@@ -93,7 +94,7 @@ def read_multi_fwf(record,fw_e):
 
 
 def main():
-    """Read in all files in data directory and dump them to a data table depeding on their layout_code"""
+    """Read in all files in data directory and dump them to a data table depeding on their layout_code."""
     directory = "../data/"
     logger.info(f"Reading and populating SOS data")
     for fn in os.listdir(directory):
@@ -102,11 +103,9 @@ def main():
             data = read_data(directory + fn)
             df = split_read_combine(data)
             logger.info(f"Read in file: {fn}")
-            #Convert nans to None for SQL and clean up
-#            df = df.where(pd.notnull(df), None)
-            #clean addresses
-#            df = cu.normalize_dataframe(df)
-            db.dump_df(df) #also links meta_data and types?
+            db.dump_df(df) 
+#also link meta_data and types?
+#KEEPING DELETE_LOG records
 #    cu.delete_records()
     logger.info(f"Read and populated SOS data")
 

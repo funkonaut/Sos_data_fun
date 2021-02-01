@@ -1,10 +1,13 @@
-import pandas as pd
-####################
+"""
+PostgreSQL database related functions. 
+"""
+
 import os
 import sys
 from io import StringIO
 from logger import logger
 from dotenv import load_dotenv
+import pandas as pd
 import psycopg2
 from psycopg2 import sql
 import psycopg2.extras as extras
@@ -13,7 +16,9 @@ import meta_data as md
 load_dotenv()
 local_dev = os.getenv("LOCAL_DEV") == "true"
 
+
 def get_database_connection(local_dev=True):
+    """Connection to PSQL DB."""
     if local_dev:
         conn = psycopg2.connect(os.getenv("LOCAL_DATABASE_URL"))
     else:
@@ -22,9 +27,7 @@ def get_database_connection(local_dev=True):
 
 
 def execute_values(conn, df, table):
-    """
-    Using psycopg2.extras.execute_values() to insert the dataframe
-    """
+    """Using psycopg2.extras.execute_values() to insert the dataframe."""
     #Convert nans to None for SQL and clean up
     df = df.where(pd.notnull(df), None)
     # Create a list of tupples from the dataframe values
@@ -48,7 +51,8 @@ def execute_values(conn, df, table):
 
 
 def filter_df(df,layout_code):
-#filter the read in dataframe for the record layout code
+    """Filter only layout_code entries in dataframe."""
+    #totals_log is the 12th entry in meta_data.py array NAMES
     if layout_code == 99:
         cols = md.NAMES[13-1]
     else:
@@ -61,6 +65,7 @@ def filter_df(df,layout_code):
 
 
 def dump_df(df):
+    """Insert all entries into their layout_code tables."""
     conn = get_database_connection(local_dev=local_dev)
     #make sure type is consistant
     df['layout_code'] = df['layout_code'].astype(int)
@@ -74,6 +79,7 @@ def dump_df(df):
 
 
 def dump_to_df(conn,table):
+    """Read all entries from table into a dataframe."""
     df = pd.read_sql_query('SELECT * FROM "%s"'%(table),con=conn)
     return df
 

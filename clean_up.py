@@ -1,7 +1,7 @@
 """
-Functions to clean up the data both in pandas and in SQL.
-These functions ensure a clean SQL table.
+Functions to clean up the data as specified by the data.
 """
+
 import os
 import sys
 from logger import logger
@@ -11,8 +11,9 @@ from psycopg2 import sql
 import meta_data as md
 import database as db
 
-#delete all records in delete_log table from other tables in SQL
+
 def delete_records():
+    """Delete records in delete_log table from other tables."""
     conn = db.get_database_connection(local_dev=local_dev)     
     cursor = conn.cursor()
     df_del = db.dump_to_df(conn, "delete_all_log")
@@ -31,10 +32,4 @@ def delete_records():
 def update_database():
     #completely replace the database table with a new dataframe
     return
-
-
-#def normalize_dataframe(df):
-#    if "address1" in df.columns: #I think we are gonna do this in psql
-#        return
-#    return df
 
