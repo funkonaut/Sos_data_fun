@@ -1,5 +1,6 @@
 # SOS DATA
 *Tested on Mac OS Catalina*
+
 This code is to build a postgreSQL database that houses Travis County Appraisal District records and Secretary of State Corporate filings. 
 ## Dependancies Setup 
 - Follow the [rules here](https://github.com/openvenues/libpostal) to install postal then follow the [rules here](https://github.com/pramsey/pgsql-postal) or comment out the call to run\_schema.py for address normalization in build\_database.py if you do not want address normalization in the sql database 
