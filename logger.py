@@ -4,6 +4,7 @@ Logger logs info to std.out and errors to errors.log
 
 #perhaps should implement different file handlers for each module
 #so different log files for errors?
+import sys
 import logging
 
 
