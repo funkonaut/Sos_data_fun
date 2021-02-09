@@ -70,7 +70,6 @@ def filter_df(df,layout_code):
 
 def dump_df(df):
     """Insert all entries into their layout_code tables."""
-    conn = get_database_connection(local_dev=local_dev)
     #make sure type is consistant
     df['layout_code'] = df['layout_code'].astype(int)
     for layout_code in df["layout_code"].unique():
@@ -95,9 +94,8 @@ def delete_log(df_del):
     return
 
 
-
 #Takes in weekly dump from SOS and updates the database maybe put in fwf_read
-#is address ever updated without a mster filing?
+#is address ever updated without a master filing?
 #test this? read meta data more!
 def update_database(fn):
     """Read in one weekly update file {fn} and add it to the database"""
